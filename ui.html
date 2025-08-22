@@ -1,0 +1,116 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    background: linear-gradient(135deg, #ffb6c1, #add8e6);
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+    cursor: url('https://ani.cursors-4u.net/games/gam-16/gam1552.cur'), auto;
+}
+
+.retro-box {
+    background: rgba(255, 255, 255, 0.1);
+    border: 4px dashed hotpink;
+    border-radius: 20px;
+    padding: 2em;
+    margin: 2em;
+    box-shadow: 0 0 20px pink;
+    backdrop-filter: blur(8px);
+}
+
+.blinky-title {
+    font-size: 1.5em;
+    color: #fff;
+    text-shadow: 2px 2px #ff69b4;
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0.6; }
+}
+
+.typewriter-text {
+    border-right: .15em solid #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 4s steps(40, end) infinite alternate, blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: white; }
+}
+
+button {
+    padding: 15px;
+    background: linear-gradient(to right, pink, violet);
+    border: 2px dotted white;
+    border-radius: 12px;
+    font-size: 1em;
+    color: white;
+    box-shadow: 0 0 10px hotpink;
+    font-family: 'Press Start 2P', cursive;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #ff69b4, #ffb6c1);
+    cursor: url('https://ani.cursors-4u.net/games/gam-16/gam1552.cur'), auto; 
+}
+
+/* Sparkle background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://cdn.wallpapersafari.com/3/62/IY4JTr.gif') repeat;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Mouse sparkle trail */
+#trail {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+}
+</style>
+
+<script>
+// Sparkle Trail Script
+const sparkles = [];
+document.addEventListener("mousemove", function(e) {
+    const sparkle = document.createElement("div");
+    sparkle.id = "trail";
+    sparkle.style.left = e.pageX + "px";
+    sparkle.style.top = e.pageY + "px";
+    document.body.appendChild(sparkle);
+    sparkles.push(sparkle);
+    setTimeout(() => {
+        sparkle.remove();
+    }, 300);
+});
+</script>
+
+<div class="retro-box">
+    <h1 class="blinky-title">WELCOME TO GAME PICKER 3000</h1>
+    <p class="typewriter-text">Loading your fate...</p>
+    <br>
+</div>
